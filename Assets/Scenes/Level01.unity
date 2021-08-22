@@ -167,6 +167,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &143872971 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2835769045464630132, guid: f97c8fda418819f4da35428714b0c58d, type: 3}
+  m_PrefabInstance: {fileID: 2835769045103688209}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &143872974
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 143872971}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ca1e036a57f61d439316eaf5c74fd94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainCam: {fileID: 519420031}
+  parent: {fileID: 143872971}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -2263,6 +2282,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2835769045218523762, guid: f97c8fda418819f4da35428714b0c58d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2835769045218523762, guid: f97c8fda418819f4da35428714b0c58d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2835769045218523765, guid: f97c8fda418819f4da35428714b0c58d, type: 3}
+      propertyPath: m_SpriteSortPoint
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2835769045464630132, guid: f97c8fda418819f4da35428714b0c58d, type: 3}
       propertyPath: m_Name
       value: Player_tank
@@ -2323,6 +2354,10 @@ PrefabInstance:
     - target: {fileID: 4036784867093986754, guid: b488830437731fa4a98755526bb2edce, type: 3}
       propertyPath: m_Name
       value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 4036784867093986754, guid: b488830437731fa4a98755526bb2edce, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4036784867093986780, guid: b488830437731fa4a98755526bb2edce, type: 3}
       propertyPath: m_RootOrder
