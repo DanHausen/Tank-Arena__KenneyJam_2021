@@ -186,6 +186,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainCam: {fileID: 519420031}
   parent: {fileID: 143872971}
+  movSpeed: 1
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -2304,7 +2305,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2835769045464630134, guid: f97c8fda418819f4da35428714b0c58d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 6.1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2835769045464630134, guid: f97c8fda418819f4da35428714b0c58d, type: 3}
       propertyPath: m_LocalPosition.y
