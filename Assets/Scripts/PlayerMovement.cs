@@ -29,7 +29,8 @@ public class PlayerMovement : MonoBehaviour
     
     private void TankFire(){
         if(Input.GetButtonDown("Fire1")){
-            Debug.Log("Fire");
+            Debug.Log("Shoot");
+            
         }    
     }
     
