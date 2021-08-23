@@ -7,16 +7,18 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private Camera mainCam;
     [SerializeField] private GameObject parent;
-    [SerializeField] private float movSpeed = 1;
+    [SerializeField] private float movSpeed = 5;
     
-    private GameObject cannon;
     private bool moving = false;
-    private Vector3 movDirection = new Vector3(0,0,0);
-    private Vector3 mouseWorldPosition = new Vector3(0,0,0);
+    private GameObject cannon;
+    private Rigidbody2D rb;
+    private Vector2 movDirection;
+    private Vector3 mouseWorldPosition;
     
     void Start()
     {
         cannon = parent.transform.GetChild(0).gameObject;
+        rb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -30,23 +32,19 @@ public class PlayerMovement : MonoBehaviour
     private void TankFire(){
         if(Input.GetButtonDown("Fire1")){
             Debug.Log("Shoot");
-            
-        }    
+            PlayerTankShoot.FireBullet():/
     }
     
     private void MousePositionMovement(){        
         if(Input.GetButtonDown("Fire2")){
             Debug.Log("Move");            
             mouseWorldPosition = mainCam.ScreenToWorldPoint(Input.mousePosition);
-            movDirection = new Vector3(mouseWorldPosition.x, mouseWorldPosition.y, 0);
-            movDirection.Normalize();
+            movDirection = (mouseWorldPosition - transform.position).normalized;
             moving = true;
         }
         if(moving){
-            if(gameObject.transform.position != movDirection){
-                transform.Translate(movDirection * movSpeed * Time.deltaTime, Space.World);
-                }
-            }
+            rb.velocity = new Vector2(movDirection.x * movSpeed, movDirection.y * movSpeed);                
+        }
     }
     
     private void CannonRotationChange(){
