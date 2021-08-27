@@ -32,7 +32,8 @@ public class PlayerMovement : MonoBehaviour
     private void TankFire(){
         if(Input.GetButtonDown("Fire1")){
             Debug.Log("Shoot");
-            PlayerTankShoot.FireBullet():/
+            //PlayerTankShoot.FireBullet();
+    }
     }
     
     private void MousePositionMovement(){        
