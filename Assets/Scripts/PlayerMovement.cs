@@ -21,7 +21,6 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
     }
 
-    // Update is called once per frame
     void Update()
     {        
         TankFire();
@@ -32,7 +31,7 @@ public class PlayerMovement : MonoBehaviour
     private void TankFire(){
         if(Input.GetButtonDown("Fire1")){
             Debug.Log("Shoot");
-            //PlayerTankShoot.FireBullet();
+            //PlayerTankShoot.FireBullet(); TODO
     }
     }
     
@@ -42,6 +41,7 @@ public class PlayerMovement : MonoBehaviour
             mouseWorldPosition = mainCam.ScreenToWorldPoint(Input.mousePosition);
             movDirection = (mouseWorldPosition - transform.position).normalized;
             moving = true;
+            // TODO fazer o jogador parar quando chegar na posição
         }
         if(moving){
             rb.velocity = new Vector2(movDirection.x * movSpeed, movDirection.y * movSpeed);                
