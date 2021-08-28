@@ -31,7 +31,7 @@ public class PlayerMovement : MonoBehaviour
     private void TankFire(){
         if(Input.GetButtonDown("Fire1")){
             Debug.Log("Shoot");
-            //PlayerTankShoot.FireBullet(); TODO
+            //PlayerTankShoot.FireBullet(); TODO chamar metodo de outra classe para atirar a bala na direção do canhão
     }
     }
     
@@ -41,10 +41,13 @@ public class PlayerMovement : MonoBehaviour
             mouseWorldPosition = mainCam.ScreenToWorldPoint(Input.mousePosition);
             movDirection = (mouseWorldPosition - transform.position).normalized;
             moving = true;
-            // TODO fazer o jogador parar quando chegar na posição
+            // TODO fazer o jogador parar quando chegar na posição. Está dando erro para pegar a diferença das distancias
         }
         if(moving){
-            rb.velocity = new Vector2(movDirection.x * movSpeed, movDirection.y * movSpeed);                
+            if((Vector2)mouseWorldPosition - rb.position == new Vector2(0,0)){
+                moving = false;
+            }
+            rb.velocity = new Vector2(movDirection.x * movSpeed, movDirection.y * movSpeed);
         }
     }
     
