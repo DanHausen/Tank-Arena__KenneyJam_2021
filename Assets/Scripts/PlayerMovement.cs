@@ -44,7 +44,7 @@ public class PlayerMovement : MonoBehaviour
             // TODO fazer o jogador parar quando chegar na posição. Está dando erro para pegar a diferença das distancias
         }
         if(moving){
-            if((Vector2)mouseWorldPosition - rb.position == new Vector2(0,0)){
+            if((Vector2)mouseWorldPosition - rb.position == (0,0)){
                 moving = false;
             }
             rb.velocity = new Vector2(movDirection.x * movSpeed, movDirection.y * movSpeed);
