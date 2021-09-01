@@ -54,11 +54,11 @@ public class PlayerMovement : MonoBehaviour
     private void CannonRotationChange(){
         if(Input.GetAxis("Mouse ScrollWheel") > 0f){
             Debug.Log("Up");     
-            cannon.transform.Rotate(0,0,10);
+            cannon.transform.Rotate(0,0,15);
         }
         else if(Input.GetAxis("Mouse ScrollWheel") < 0f){
             Debug.Log("Down");
-            cannon.transform.Rotate(0,0,-10);            
+            cannon.transform.Rotate(0,0,-15);            
         }
     }
 }
