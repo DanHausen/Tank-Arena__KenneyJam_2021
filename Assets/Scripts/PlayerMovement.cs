@@ -41,14 +41,15 @@ public class PlayerMovement : MonoBehaviour
             mouseWorldPosition = mainCam.ScreenToWorldPoint(Input.mousePosition);
             movDirection = (mouseWorldPosition - transform.position).normalized;
             moving = true;
-            // TODO fazer o jogador parar quando chegar na posição. Está dando erro para pegar a diferença das distancias
-            
         }
         if(moving){
-            if(rb.position.x.Equals(mouseWorldPosition.x) == true && rb.position.y.Equals(mouseWorldPosition.y) == true){
+            rb.velocity = new Vector2(movDirection.x * movSpeed, movDirection.y * movSpeed);            
+            if(Vector2.Distance((Vector2)transform.position, (Vector2)mouseWorldPosition) <= 0.2){
                 moving = false;
             }
-            rb.velocity = new Vector2(movDirection.x * movSpeed, movDirection.y * movSpeed);
+        }
+        else{
+            rb.velocity = Vector2.zero;
         }
     }
     
