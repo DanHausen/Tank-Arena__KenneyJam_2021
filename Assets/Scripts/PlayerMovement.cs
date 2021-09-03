@@ -9,6 +9,10 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private GameObject parent;
     [SerializeField] private float movSpeed = 5;
     
+    [SerializeField] private GameObject bullet_Spawn_Point;
+    [SerializeField] private GameObject bullet;
+    public float bullet_Forward_Force;
+    
     private bool moving = false;
     private GameObject cannon;
     private Rigidbody2D rb;
@@ -31,7 +35,7 @@ public class PlayerMovement : MonoBehaviour
     private void TankFire(){
         if(Input.GetButtonDown("Fire1")){
             Debug.Log("Shoot");
-            //PlayerTankShoot.FireBullet(); TODO chamar metodo de outra classe para atirar a bala na direção do canhão
+            FireBullet();
     }
     }
     
@@ -62,5 +66,16 @@ public class PlayerMovement : MonoBehaviour
             Debug.Log("Down");
             cannon.transform.Rotate(0,0,-15);            
         }
+    }    
+    
+    public void FireBullet(){
+        GameObject temporary_Game_Object;
+        temporary_Game_Object = Instantiate(bullet, bullet_Spawn_Point.transform.position, bullet_Spawn_Point.transform.rotation) as GameObject;
+        
+        Rigidbody2D temporary_Rigidbody2D;
+        temporary_Rigidbody2D = temporary_Game_Object.GetComponent<Rigidbody2D>();        
+        temporary_Rigidbody2D.AddForce(bullet_Spawn_Point.transform.forward * bullet_Forward_Force);
+        
+        Destroy(temporary_Game_Object, 10f);
     }
 }
