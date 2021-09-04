@@ -11,7 +11,7 @@ public class PlayerMovement : MonoBehaviour
     
     [SerializeField] private GameObject bullet_Spawn_Point;
     [SerializeField] private GameObject bullet;
-    public float bullet_Forward_Force = 10;
+    public float bullet_Forward_Force = 100;
     
     private bool moving = false;
     private GameObject cannon;
@@ -76,6 +76,6 @@ public class PlayerMovement : MonoBehaviour
         temporary_Rigidbody2D = temporary_Game_Object.GetComponent<Rigidbody2D>();        
         temporary_Rigidbody2D.AddForce(bullet_Spawn_Point.transform.forward * bullet_Forward_Force);
         
-        Destroy(temporary_Game_Object, 10f);
+        Destroy(temporary_Game_Object, 8f);
     }
 }
