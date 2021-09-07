@@ -74,7 +74,7 @@ public class PlayerMovement : MonoBehaviour
         
         Rigidbody2D temporary_Rigidbody2D;
         temporary_Rigidbody2D = temporary_Game_Object.GetComponent<Rigidbody2D>();        
-        temporary_Rigidbody2D.AddForce(bullet_Spawn_Point.transform.forward * bullet_Forward_Force);
+        temporary_Rigidbody2D.AddForce(bullet_Spawn_Point.transform.forward * bullet_Forward_Force, ForceMode2D.Impulse);
         
         Destroy(temporary_Game_Object, 8f);
     }
