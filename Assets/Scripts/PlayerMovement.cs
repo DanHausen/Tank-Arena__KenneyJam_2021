@@ -34,7 +34,6 @@ public class PlayerMovement : MonoBehaviour
     
     private void TankFire(){
         if(Input.GetButtonDown("Fire1")){
-            Debug.Log("Shoot");
             FireBullet();
     }
     }
@@ -68,14 +67,8 @@ public class PlayerMovement : MonoBehaviour
         }
     }    
     
-    public void FireBullet(){
-        GameObject temporary_Game_Object;
-        temporary_Game_Object = Instantiate(bullet, bullet_Spawn_Point.transform.position, bullet_Spawn_Point.transform.rotation) as GameObject;
-        
-        Rigidbody2D temporary_Rigidbody2D;
-        temporary_Rigidbody2D = temporary_Game_Object.GetComponent<Rigidbody2D>();        
-        temporary_Rigidbody2D.AddForce(bullet_Spawn_Point.transform.forward * bullet_Forward_Force, ForceMode2D.Impulse);
-        
-        Destroy(temporary_Game_Object, 8f);
+    public void FireBullet(){        
+        GameObject temporary_Rigidbody2D;
+        temporary_Rigidbody2D = Instantiate(bullet, bullet_Spawn_Point.transform.position, bullet_Spawn_Point.transform.rotation);        
     }
 }
