@@ -11,7 +11,6 @@ public class PlayerMovement : MonoBehaviour
     
     [SerializeField] private GameObject bullet_Spawn_Point;
     [SerializeField] private GameObject bullet;
-    public float bullet_Forward_Force = 100;
     
     private bool moving = false;
     private GameObject cannon;
