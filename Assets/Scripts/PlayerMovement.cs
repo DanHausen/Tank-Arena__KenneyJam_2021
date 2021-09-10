@@ -43,9 +43,10 @@ public class PlayerMovement : MonoBehaviour
             mouseWorldPosition = mainCam.ScreenToWorldPoint(Input.mousePosition);
             movDirection = (mouseWorldPosition - transform.position).normalized;
             moving = true;
+            //TODO - definir velocidade unica para a movimentação do player
         }
         if(moving){
-            rb.velocity = new Vector2(movDirection.x * movSpeed, movDirection.y * movSpeed);            
+            rb.MovePosition(mouseWorldPosition);            
             if(Vector2.Distance((Vector2)transform.position, (Vector2)mouseWorldPosition) <= 0.2){
                 moving = false;
             }
