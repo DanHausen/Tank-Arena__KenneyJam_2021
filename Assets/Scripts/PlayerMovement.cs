@@ -34,6 +34,7 @@ public class PlayerMovement : MonoBehaviour
     private void TankFire(){
         if(Input.GetButtonDown("Fire1")){
             FireBullet();
+            //TODO os tiros estão colidindo quando varios são atirados consecutivamente, preciso arrumar isso.
         }
     }
     
@@ -56,6 +57,7 @@ public class PlayerMovement : MonoBehaviour
     }
     
     private void CannonRotationChange(){
+        //TODO Parece que não está tão facil de relacionar a rotação do canhão com o wheel e a movimentação. Parece estar confuso.
         if(Input.GetAxis("Mouse ScrollWheel") > 0f){
             cannon.transform.Rotate(0,0,15);
         }
