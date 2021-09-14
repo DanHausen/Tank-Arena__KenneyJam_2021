@@ -34,7 +34,7 @@ public class PlayerMovement : MonoBehaviour
     private void TankFire(){
         if(Input.GetButtonDown("Fire1")){
             FireBullet();
-    }
+        }
     }
     
     private void MousePositionMovement(){        
@@ -42,6 +42,7 @@ public class PlayerMovement : MonoBehaviour
             mouseWorldPosition = (Vector2)mainCam.ScreenToWorldPoint(Input.mousePosition);
             //movDirection = (mouseWorldPosition - transform.position).normalized;
             moving = true;
+            //TODO preciso limitar o movimento do jogador para dentro da área do jogo. O jogador está saindo da cena quando clica fora
         }
         if(moving){
             transform.position = Vector2.MoveTowards(transform.position, mouseWorldPosition, movSpeed * Time.deltaTime);            
