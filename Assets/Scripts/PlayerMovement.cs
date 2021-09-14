@@ -39,14 +39,12 @@ public class PlayerMovement : MonoBehaviour
     
     private void MousePositionMovement(){        
         if(Input.GetButtonDown("Fire2")){
-            Debug.Log("Move");            
-            mouseWorldPosition = mainCam.ScreenToWorldPoint(Input.mousePosition);
-            movDirection = (mouseWorldPosition - transform.position).normalized;
+            mouseWorldPosition = (Vector2)mainCam.ScreenToWorldPoint(Input.mousePosition);
+            //movDirection = (mouseWorldPosition - transform.position).normalized;
             moving = true;
-            //TODO - definir velocidade unica para a movimentação do player
         }
         if(moving){
-            rb.MovePosition(mouseWorldPosition);            
+            transform.position = Vector2.MoveTowards(transform.position, mouseWorldPosition, movSpeed * Time.deltaTime);            
             if(Vector2.Distance((Vector2)transform.position, (Vector2)mouseWorldPosition) <= 0.2){
                 moving = false;
             }
@@ -58,11 +56,9 @@ public class PlayerMovement : MonoBehaviour
     
     private void CannonRotationChange(){
         if(Input.GetAxis("Mouse ScrollWheel") > 0f){
-            Debug.Log("Up");     
             cannon.transform.Rotate(0,0,15);
         }
         else if(Input.GetAxis("Mouse ScrollWheel") < 0f){
-            Debug.Log("Down");
             cannon.transform.Rotate(0,0,-15);            
         }
     }    
