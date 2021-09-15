@@ -123,7 +123,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3eee626a5bf10d3419e135c0a7fba5cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullet_Forward_Force: 2
+  bullet_Forward_Force: 7
 --- !u!50 &-9026492350167658876
 Rigidbody2D:
   serializedVersion: 4

@@ -8,6 +8,6 @@ public class Fired : MonoBehaviour
     {
         Rigidbody2D temporary_Rigidbody2D = GetComponent<Rigidbody2D>();
         temporary_Rigidbody2D.AddForce(gameObject.transform.up * bullet_Forward_Force, ForceMode2D.Impulse);
-        Destroy(gameObject, 8f);
+        Destroy(gameObject, 4f);
     }
 }

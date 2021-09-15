@@ -34,7 +34,6 @@ public class PlayerMovement : MonoBehaviour
     private void TankFire(){
         if(Input.GetButtonDown("Fire1")){
             FireBullet();
-            //TODO os tiros estão colidindo quando varios são atirados consecutivamente, preciso arrumar isso.
         }
     }
     
