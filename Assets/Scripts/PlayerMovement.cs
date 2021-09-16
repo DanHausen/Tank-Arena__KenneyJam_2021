@@ -17,6 +17,8 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D rb;
     private Vector2 movDirection;
     private Vector3 mouseWorldPosition;
+    private Vector3 screenPoint;
+    private bool onScreen;
     
     void Start()
     {
@@ -25,7 +27,7 @@ public class PlayerMovement : MonoBehaviour
     }
 
     void Update()
-    {        
+    {       
         TankFire();
         MousePositionMovement();     
         CannonRotationChange();        
@@ -38,15 +40,19 @@ public class PlayerMovement : MonoBehaviour
     }
     
     private void MousePositionMovement(){        
-        if(Input.GetButtonDown("Fire2")){
-            mouseWorldPosition = (Vector2)mainCam.ScreenToWorldPoint(Input.mousePosition);
+        if(Input.GetButtonDown("Fire2"))
+        {
+            mouseWorldPosition = (Vector2)mainCam.ScreenToWorldPoint(Input.mousePosition);//Captura a posição do click
+            moving = true; //Ativa a movimentação
+
+            VerifyClickPositionInsideCamLimits();
+
             //movDirection = (mouseWorldPosition - transform.position).normalized;
-            moving = true;
-            //TODO preciso limitar o movimento do jogador para dentro da área do jogo. O jogador está saindo da cena quando clica fora
         }
-        if(moving){
-            transform.position = Vector2.MoveTowards(transform.position, mouseWorldPosition, movSpeed * Time.deltaTime);            
+        if (moving && onScreen){
+            transform.position = Vector2.MoveTowards(transform.position, mouseWorldPosition, movSpeed * Time.deltaTime);            // Move o jogador em direção ao click do mouse
             if(Vector2.Distance((Vector2)transform.position, (Vector2)mouseWorldPosition) <= 0.2){
+                //Essa é a condição para pausar a movimentação do jogador se já chegou na posição do click
                 moving = false;
             }
         }
@@ -54,7 +60,13 @@ public class PlayerMovement : MonoBehaviour
             rb.velocity = Vector2.zero;
         }
     }
-    
+
+    private void VerifyClickPositionInsideCamLimits()
+    {
+        screenPoint = mainCam.WorldToViewportPoint(mouseWorldPosition); //Pega a posição do click em relação ao que a camera vê
+        onScreen = screenPoint.z > 0 && screenPoint.x > 0 && screenPoint.x < 1 && screenPoint.y > 0 && screenPoint.y < 1; //Compara a posição do que a camera vê com limites, se estiver dentro do limite é True.
+    }
+
     private void CannonRotationChange(){
         //TODO Parece que não está tão facil de relacionar a rotação do canhão com o wheel e a movimentação. Parece estar confuso.
         if(Input.GetAxis("Mouse ScrollWheel") > 0f){
