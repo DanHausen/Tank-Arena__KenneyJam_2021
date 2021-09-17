@@ -43,6 +43,7 @@ public class PlayerMovement : MonoBehaviour
         if(Input.GetButtonDown("Fire2"))
         {
             //TODO Preciso fazer o tank virar para a direção correta e somente então se mover
+            //TODO Adicionar feedback mostrando a localização que o jogador clicou
             
             mouseWorldPosition = (Vector2)mainCam.ScreenToWorldPoint(Input.mousePosition);//Captura a posição do click
             moving = true; //Ativa a movimentação
