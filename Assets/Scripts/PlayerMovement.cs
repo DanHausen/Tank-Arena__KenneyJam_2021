@@ -42,6 +42,8 @@ public class PlayerMovement : MonoBehaviour
     private void MousePositionMovement(){        
         if(Input.GetButtonDown("Fire2"))
         {
+            //TODO Preciso fazer o tank virar para a direção correta e somente então se mover
+            
             mouseWorldPosition = (Vector2)mainCam.ScreenToWorldPoint(Input.mousePosition);//Captura a posição do click
             moving = true; //Ativa a movimentação
 
@@ -68,7 +70,7 @@ public class PlayerMovement : MonoBehaviour
     }
 
     private void CannonRotationChange(){
-        //TODO Parece que não está tão facil de relacionar a rotação do canhão com o wheel e a movimentação. Parece estar confuso.
+        //TODO Adicionar uma seta grande, visual, para dar mais feedback em relação a direção do canhão
         if(Input.GetAxis("Mouse ScrollWheel") > 0f){
             cannon.transform.Rotate(0,0,15);
         }
@@ -78,6 +80,7 @@ public class PlayerMovement : MonoBehaviour
     }    
     
     public void FireBullet(){        
+        //TODO Adicionar força em direção oposta ao tiro, para mover e desbalancear o jogador
         GameObject temporary_Rigidbody2D;
         temporary_Rigidbody2D = Instantiate(bullet, bullet_Spawn_Point.transform.position, bullet_Spawn_Point.transform.rotation);        
     }
