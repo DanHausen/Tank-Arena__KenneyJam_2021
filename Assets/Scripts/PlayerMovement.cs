@@ -1,4 +1,4 @@
- using System.Linq.Expressions;
+using System.Linq.Expressions;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -51,7 +51,7 @@ public class PlayerMovement : MonoBehaviour
         }
         if (moving && onScreen){
             transform.position = Vector2.MoveTowards(transform.position, mouseWorldPosition, movSpeed * Time.deltaTime);            // Move o jogador em direção ao click do mouse
-            if(Vector2.Distance((Vector2)transform.position, (Vector2)mouseWorldPosition) <= 0.2){
+            if(Vector2.Distance((Vector2)transform.position, (Vector2)mouseWorldPosition) <= 0.1){
                 //Essa é a condição para pausar a movimentação do jogador se já chegou na posição do click
                 moving = false;
             }
