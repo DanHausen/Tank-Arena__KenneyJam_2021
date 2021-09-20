@@ -11,6 +11,7 @@ public class PlayerMovement : MonoBehaviour
     
     [SerializeField] private GameObject bullet_Spawn_Point;
     [SerializeField] private GameObject bullet;
+    [SerializeField] private GameObject click_target;
     
     private bool moving = false;
     private GameObject cannon;
@@ -43,11 +44,10 @@ public class PlayerMovement : MonoBehaviour
         if(Input.GetButtonDown("Fire2"))
         {
             //TODO Preciso fazer o tank virar para a direção correta e somente então se mover
-            //TODO Adicionar feedback mostrando a localização que o jogador clicou
-            
             mouseWorldPosition = (Vector2)mainCam.ScreenToWorldPoint(Input.mousePosition);//Captura a posição do click
             moving = true; //Ativa a movimentação
-
+            
+            GameObject temp_ClickTarget = Instantiate(click_target, mouseWorldPosition, Quaternion.identity);
             VerifyClickPositionInsideCamLimits();
 
             //movDirection = (mouseWorldPosition - transform.position).normalized;
