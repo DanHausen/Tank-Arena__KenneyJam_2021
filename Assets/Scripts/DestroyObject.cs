@@ -8,6 +8,11 @@ public class DestroyObject : MonoBehaviour
     
     void Start()
     {
-        Destroy(gameObject, timeToDestroy);
+        DestroyGameObject(timeToDestroy);
+    }
+    
+    public void DestroyGameObject(float time){
+        Destroy(gameObject, time);
+        
     }
 }
