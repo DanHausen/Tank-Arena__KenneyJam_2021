@@ -81,8 +81,13 @@ public class PlayerMovement : MonoBehaviour
     }    
     
     public void FireBullet(){        
-        //TODO Adicionar força em direção oposta ao tiro, para mover e desbalancear o jogador
+        BackTankForceWhenFired();
         GameObject temporary_Rigidbody2D;
         temporary_Rigidbody2D = Instantiate(bullet, bullet_Spawn_Point.transform.position, bullet_Spawn_Point.transform.rotation);        
+    }
+    
+    private void BackTankForceWhenFired(){
+        rb.AddForce(-bullet_Spawn_Point.transform.up * 800f); 
+        moving = false;
     }
 }
