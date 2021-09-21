@@ -80,7 +80,8 @@ public class PlayerMovement : MonoBehaviour
         }
     }    
     
-    public void FireBullet(){        
+    public void FireBullet(){
+        //TODO Fazer o tiro do canhão atravessar as barreiras do mapa
         BackTankForceWhenFired();
         GameObject temporary_Rigidbody2D;
         temporary_Rigidbody2D = Instantiate(bullet, bullet_Spawn_Point.transform.position, bullet_Spawn_Point.transform.rotation);        
