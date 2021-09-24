@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
-    // Start is called before the first frame update
+    //TODO Criar mecanica para spawnar inimigos neste script e tambem evoluir na dificuldade
+    //TODO Aqui tambem vai o temporizador e leaderboard
+    
+    //TODO seria bacana adicionar power ups
     void Start()
     {
         
