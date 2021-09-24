@@ -71,7 +71,6 @@ public class PlayerMovement : MonoBehaviour
     }
 
     private void CannonRotationChange(){
-        //TODO Adicionar uma seta grande, visual, para dar mais feedback em relação a direção do canhão
         if(Input.GetAxis("Mouse ScrollWheel") > 0f){
             cannon.transform.Rotate(0,0,15);
         }
@@ -81,7 +80,6 @@ public class PlayerMovement : MonoBehaviour
     }    
     
     public void FireBullet(){
-        //TODO Fazer o tiro do canhão atravessar as barreiras do mapa
         BackTankForceWhenFired();
         GameObject temporary_Rigidbody2D;
         temporary_Rigidbody2D = Instantiate(bullet, bullet_Spawn_Point.transform.position, bullet_Spawn_Point.transform.rotation);        
