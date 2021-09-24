@@ -43,8 +43,8 @@ public class PlayerMovement : MonoBehaviour
     private void MousePositionMovement(){        
         if(Input.GetButtonDown("Fire2"))
         {
-            //TODO Preciso fazer o tank virar para a direção correta e somente então se mover
             mouseWorldPosition = (Vector2)mainCam.ScreenToWorldPoint(Input.mousePosition);//Captura a posição do click
+            TankRotationToClick(mouseWorldPosition);            
             moving = true; //Ativa a movimentação
             
             GameObject temp_ClickTarget = Instantiate(click_target, mouseWorldPosition, Quaternion.identity);
@@ -63,6 +63,13 @@ public class PlayerMovement : MonoBehaviour
             rb.velocity = Vector2.zero;
         }
     }
+    
+    private void TankRotationToClick(Vector2 mouseInput){
+            //TODO Preciso fazer o tank virar para a direção correta e somente então se mover
+        
+        Vector2 dir = mouseInput - (Vector2)transform.position;
+        gameObject.transform.LookAt(mouseInput);
+    }
 
     private void VerifyClickPositionInsideCamLimits()
     {
@@ -80,7 +87,7 @@ public class PlayerMovement : MonoBehaviour
     }    
     
     public void FireBullet(){
-        //TODO a bala está muito doida girando depois que rebate. Preciso arrumar isso
+        //TODO a bala está muito doida girando depois que rebate. Preciso arrumar isso. Ou não.
         BackTankForceWhenFired();
         GameObject temporary_Rigidbody2D;
         temporary_Rigidbody2D = Instantiate(bullet, bullet_Spawn_Point.transform.position, bullet_Spawn_Point.transform.rotation);        
