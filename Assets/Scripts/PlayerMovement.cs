@@ -80,6 +80,7 @@ public class PlayerMovement : MonoBehaviour
     }    
     
     public void FireBullet(){
+        //TODO a bala está muito doida girando depois que rebate. Preciso arrumar isso
         BackTankForceWhenFired();
         GameObject temporary_Rigidbody2D;
         temporary_Rigidbody2D = Instantiate(bullet, bullet_Spawn_Point.transform.position, bullet_Spawn_Point.transform.rotation);        
