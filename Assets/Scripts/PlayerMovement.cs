@@ -5,12 +5,11 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    public GameController controller;
+    
     [SerializeField] private Camera mainCam;
     [SerializeField] private GameObject parent;
-    [SerializeField] private float movSpeed = 5;
-    
-    [SerializeField] private GameObject bullet_Spawn_Point;
-    [SerializeField] private GameObject bullet;
+    [SerializeField] private float movSpeed = 5;  
     [SerializeField] private GameObject click_target;
     
     private bool moving = false;
@@ -66,10 +65,6 @@ public class PlayerMovement : MonoBehaviour
     }
     
     private void TankRotationToClick(Vector2 mouseInput){
-            //TODO Preciso fazer o tank virar para a direção correta e somente então se mover
-        
-        Vector2 dir = mouseInput - (Vector2)transform.position;
-        gameObject.transform.LookAt(mouseInput);
     }
 
     private void VerifyClickPositionInsideCamLimits()
@@ -87,15 +82,13 @@ public class PlayerMovement : MonoBehaviour
         }
     }    
     
-    public void FireBullet(){
-        //TODO a bala está muito doida girando depois que rebate. Preciso arrumar isso. Ou não.
+    private void FireBullet(){
         BackTankForceWhenFired();
-        GameObject temporary_Rigidbody2D;
-        temporary_Rigidbody2D = Instantiate(bullet, bullet_Spawn_Point.transform.position, bullet_Spawn_Point.transform.rotation);        
+        controller.FiredBullet();
     }
     
     private void BackTankForceWhenFired(){
-        rb.AddForce(-bullet_Spawn_Point.transform.up * 800f); 
+        rb.AddForce(-cannon.transform.up * 800f); 
         moving = false;
     }
 }
