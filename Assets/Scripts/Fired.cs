@@ -11,5 +11,6 @@ public class Fired : DestroyObject
         temporary_Rigidbody2D.AddForce(gameObject.transform.up * bullet_Forward_Force, ForceMode2D.Impulse);
         
         DestroyGameObject(timeToDestroy);
+        //TODO Fazer as balas explodirem no final
     }
 }

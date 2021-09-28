@@ -801,7 +801,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ammoAmount: 3
-  ammoCounter: {fileID: 1492479884}
+  ammoCounterTextField: {fileID: 1492479884}
   bullet_Spawn_Point: {fileID: 354823522}
   bullet: {fileID: 8196649866908802620, guid: 5fb8a56ca3cd5f249a72b69cf51dbe64, type: 3}
 --- !u!20 &519420031

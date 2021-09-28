@@ -7,25 +7,17 @@ using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
-    public int ammoAmount = 3;
-    public Text ammoCounter;
-    
+    [SerializeField] private int ammoAmount = 3;
+    [SerializeField] private Text ammoCounterTextField;    
     [SerializeField] private GameObject bullet_Spawn_Point;
-    [SerializeField] private GameObject bullet;
-    
+    [SerializeField] private GameObject bullet;    
     
     //TODO Criar mecanica para spawnar inimigos neste script e tambem evoluir na dificuldade
     //TODO Aqui tambem vai o temporizador e leaderboard
-    
     //TODO seria bacana adicionar power ups
-    void Start()
-    {
-        
-    }
     
-    void Update()
-    {
-        AmmoCounter();
+    void Start(){
+        AmmoCounter(ammoAmount);
     }
     
     public bool FiredBullet(){
@@ -33,11 +25,12 @@ public class GameController : MonoBehaviour
             GameObject temporary_Rigidbody2D;
             temporary_Rigidbody2D = Instantiate(bullet, bullet_Spawn_Point.transform.position, bullet_Spawn_Point.transform.rotation);
             ammoAmount--;
+            AmmoCounter(ammoAmount);
         }
-            return true ? ammoAmount > 0 : false;        
+            return true ? ammoAmount > 0 : false;
     }
     
-    private void AmmoCounter(){
-        ammoCounter.text = ammoAmount.ToString();
+    private void AmmoCounter(int ammo){
+        ammoCounterTextField.text = ammo.ToString();
     }
 }
