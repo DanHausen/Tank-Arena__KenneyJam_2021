@@ -1,11 +1,14 @@
+using System.Net.Mime;
 using System.Linq.Expressions;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
-    public int qtdeDeBalas = 3;
+    public int ammoAmount = 3;
+    public Text ammoCounter;
     
     [SerializeField] private GameObject bullet_Spawn_Point;
     [SerializeField] private GameObject bullet;
@@ -22,13 +25,19 @@ public class GameController : MonoBehaviour
     
     void Update()
     {
-        
+        AmmoCounter();
     }
     
-    public void FiredBullet(){
-        if (qtdeDeBalas > 0){
+    public bool FiredBullet(){
+        if (ammoAmount > 0){
             GameObject temporary_Rigidbody2D;
             temporary_Rigidbody2D = Instantiate(bullet, bullet_Spawn_Point.transform.position, bullet_Spawn_Point.transform.rotation);
+            ammoAmount--;
         }
+            return true ? ammoAmount > 0 : false;        
+    }
+    
+    private void AmmoCounter(){
+        ammoCounter.text = ammoAmount.ToString();
     }
 }

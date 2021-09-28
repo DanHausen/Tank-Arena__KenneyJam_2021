@@ -83,8 +83,10 @@ public class PlayerMovement : MonoBehaviour
     }    
     
     private void FireBullet(){
-        BackTankForceWhenFired();
-        controller.FiredBullet();
+        bool hasAmmo = controller.FiredBullet();
+        if(hasAmmo){
+            BackTankForceWhenFired();
+        }
     }
     
     private void BackTankForceWhenFired(){
