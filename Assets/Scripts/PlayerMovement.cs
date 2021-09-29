@@ -35,7 +35,6 @@ public class PlayerMovement : MonoBehaviour
     
     private void TankFire(){
         if(Input.GetButtonDown("Fire1")){
-            //TODO Adicionar um temporizador de tiro e uma quantidade de munição
             FireBullet();
         }
     }

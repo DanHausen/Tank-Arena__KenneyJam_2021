@@ -29,6 +29,7 @@ public class GameController : MonoBehaviour
         }
             return true ? ammoAmount > 0 : false;
     }
+    //TODO Adicionar um temporizador de tiro e uma quantidade de munição
     
     private void AmmoCounter(int ammo){
         ammoCounterTextField.text = ammo.ToString();
