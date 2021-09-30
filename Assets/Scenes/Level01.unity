@@ -675,11 +675,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85703b95f2266da42920710fafbf691d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ammoAmount: 3
-  scorePointsText: {fileID: 0}
-  bullet_Spawn_Point: {fileID: 354823522}
-  bullet: {fileID: 8196649866908802620, guid: 5fb8a56ca3cd5f249a72b69cf51dbe64, type: 3}
+  _ammoAmount: 3
+  _scorePointsText: {fileID: 1492479884}
+  _bullet_Spawn_Point: {fileID: 354823522}
+  _bullet: {fileID: 8196649866908802620, guid: 5fb8a56ca3cd5f249a72b69cf51dbe64, type: 3}
   ammoSlider: {fileID: 571443603}
+  ammoMax: 3
+  fillAmount: 0.1
+  timeToReload: 10
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0

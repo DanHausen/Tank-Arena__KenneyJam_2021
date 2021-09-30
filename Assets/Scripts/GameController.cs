@@ -3,23 +3,28 @@ using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
-    [SerializeField] private int ammoAmount = 3;
-    [SerializeField] private Text scorePointsText;    
-    [SerializeField] private GameObject bullet_Spawn_Point;
-    [SerializeField] private GameObject bullet;    
+    [SerializeField] private int _ammoAmount = 3;
+    [SerializeField] private Text _scorePointsText;    
+    [SerializeField] private GameObject _bullet_Spawn_Point;
+    [SerializeField] private GameObject _bullet;    
+    private float _timeToReload = 0;
+    private bool _fireTimerBlocked = false;
+    private bool timerIsRunning = false;
     
-    private bool fireTimerBlocked = false;
     
     public Slider ammoSlider;
     public int ammoMax = 3;
     public float fillAmount = 0.1f;
+    public float timeToReload = 7f;
+    
     
     //TODO Criar mecanica para spawnar inimigos neste script e tambem evoluir na dificuldade
     //TODO Aqui tambem vai o temporizador e leaderboard
     //TODO seria bacana adicionar power ups
     
     void Start(){
-        AmmoCounterSliderUpdate(ammoAmount);
+        AmmoCounterSliderUpdate(_ammoAmount);
+        _timeToReload = timeToReload;
     }
     
     void Update(){
@@ -27,11 +32,13 @@ public class GameController : MonoBehaviour
     }
     
     public bool FiredBullet(){
-        if (ammoAmount > 0){
+        if (_ammoAmount > 0){
             GameObject temporary_Rigidbody2D;
-            temporary_Rigidbody2D = Instantiate(bullet, bullet_Spawn_Point.transform.position, bullet_Spawn_Point.transform.rotation);
-            ammoAmount--;
-            AmmoCounterSliderUpdate(ammoAmount);
+            temporary_Rigidbody2D = Instantiate(_bullet, _bullet_Spawn_Point.transform.position, _bullet_Spawn_Point.transform.rotation);
+            _ammoAmount--;
+            AmmoCounterSliderUpdate(_ammoAmount);
+            timerIsRunning = true;
+            
         }
             return AmmoTimmerBlocker();
     }
@@ -42,15 +49,21 @@ public class GameController : MonoBehaviour
     
     //TODO Adicionar um temporizador de tiro    
     private bool AmmoTimmerBlocker(){
-        return false ? ammoAmount <= 0 : true;
+        return false ? _ammoAmount <= 0 : true;
     }
     
     private void AmmoRefill(){
-        if(ammoAmount < ammoMax){//TODO Não está funcionando
-            ammoSlider.value += fillAmount * Time.deltaTime;
+        if(timerIsRunning){
+            if(timeToReload > 0 && _ammoAmount < ammoMax){
+                timeToReload -= Time.deltaTime;
+            }
+            else{
+                _ammoAmount++;
+                AmmoCounterSliderUpdate(_ammoAmount);
+                timeToReload = _timeToReload;
+                timerIsRunning = false ? _ammoAmount == ammoMax : timerIsRunning = true;
+            }
         }
-        else{
-            fireTimerBlocked = AmmoTimmerBlocker();
-        }
+        
     }
 }
