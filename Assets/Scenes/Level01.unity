@@ -682,7 +682,7 @@ MonoBehaviour:
   ammoSlider: {fileID: 571443603}
   ammoMax: 3
   fillAmount: 0.1
-  timeToReload: 10
+  timeToReload: 2
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0

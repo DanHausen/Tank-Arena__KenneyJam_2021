@@ -47,23 +47,18 @@ public class GameController : MonoBehaviour
         ammoSlider.value = ammo;
     }
     
-    //TODO Adicionar um temporizador de tiro    
     private bool AmmoTimmerBlocker(){
         return false ? _ammoAmount <= 0 : true;
     }
     
     private void AmmoRefill(){
-        if(timerIsRunning){
-            if(timeToReload > 0 && _ammoAmount < ammoMax){
-                timeToReload -= Time.deltaTime;
-            }
-            else{
+        if(timeToReload > 0 && _ammoAmount < ammoMax){
+            timeToReload -= Time.deltaTime;
+            if(timeToReload <= 0){
                 _ammoAmount++;
                 AmmoCounterSliderUpdate(_ammoAmount);
                 timeToReload = _timeToReload;
-                timerIsRunning = false ? _ammoAmount >= ammoMax : timerIsRunning = true;
             }
         }
-        
     }
 }
