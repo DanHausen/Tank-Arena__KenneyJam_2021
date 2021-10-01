@@ -61,7 +61,7 @@ public class GameController : MonoBehaviour
                 _ammoAmount++;
                 AmmoCounterSliderUpdate(_ammoAmount);
                 timeToReload = _timeToReload;
-                timerIsRunning = false ? _ammoAmount == ammoMax : timerIsRunning = true;
+                timerIsRunning = false ? _ammoAmount >= ammoMax : timerIsRunning = true;
             }
         }
         
