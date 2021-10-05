@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Fired : DestroyObject
+public class Fired : DestroyAndInstantiateObject
 {
     public float bullet_Forward_Force = 10;
     public float timeToDestroy = 4f;
@@ -15,5 +15,6 @@ public class Fired : DestroyObject
     
     void OnDestroy(){
         //TODO Fazer as balas explodirem no final. Instanciar a explosão
+        InstantiateGameObject();
     }
 }
