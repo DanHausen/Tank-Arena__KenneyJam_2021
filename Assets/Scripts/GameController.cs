@@ -16,8 +16,6 @@ public class GameController : MonoBehaviour
     public float timeToReload = 7f;
     
     
-    //TODO Criar mecanica para spawnar inimigos neste script e tambem evoluir na dificuldade
-    //TODO Aqui tambem vai a leaderboard
     
     void Start(){
         AmmoCounterSliderUpdate(_ammoAmount);
@@ -36,14 +34,15 @@ public class GameController : MonoBehaviour
             AmmoCounterSliderUpdate(_ammoAmount);
             
         }
-            return AmmoTimmerBlocker();
+            return AmmoAmountValidator();
     }
+    
     
     private void AmmoCounterSliderUpdate(int ammo){
         ammoSlider.value = ammo;
     }
     
-    private bool AmmoTimmerBlocker(){
+    private bool AmmoAmountValidator(){
         return false ? _ammoAmount <= 0 : true;
     }
     
@@ -56,5 +55,15 @@ public class GameController : MonoBehaviour
                 timeToReload = _timeToReload;
             }
         }
+    }
+    
+    private void EnemySpawn(){
+        //TODO Criar mecanica para spawnar inimigos neste script e tambem evoluir na dificuldade
+        
+    }
+    
+    private void Leaderboard(){
+        //TODO Aqui tambem vai a leaderboard
+        
     }
 }

@@ -13,6 +13,9 @@ public class DestroyObject : MonoBehaviour
     
     public void DestroyGameObject(float time){
         Destroy(gameObject, time);
+    }
+    
+    public void BulletExplosionInstantiate(){
         
     }
 }
