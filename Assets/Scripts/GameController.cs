@@ -8,8 +8,6 @@ public class GameController : MonoBehaviour
     [SerializeField] private GameObject _bullet_Spawn_Point;
     [SerializeField] private GameObject _bullet;    
     private float _timeToReload = 0;
-    private bool _fireTimerBlocked = false;
-    private bool timerIsRunning = false;
     
     
     public Slider ammoSlider;
@@ -19,8 +17,7 @@ public class GameController : MonoBehaviour
     
     
     //TODO Criar mecanica para spawnar inimigos neste script e tambem evoluir na dificuldade
-    //TODO Aqui tambem vai o temporizador e leaderboard
-    //TODO seria bacana adicionar power ups
+    //TODO Aqui tambem vai a leaderboard
     
     void Start(){
         AmmoCounterSliderUpdate(_ammoAmount);
@@ -37,7 +34,6 @@ public class GameController : MonoBehaviour
             temporary_Rigidbody2D = Instantiate(_bullet, _bullet_Spawn_Point.transform.position, _bullet_Spawn_Point.transform.rotation);
             _ammoAmount--;
             AmmoCounterSliderUpdate(_ammoAmount);
-            timerIsRunning = true;
             
         }
             return AmmoTimmerBlocker();
