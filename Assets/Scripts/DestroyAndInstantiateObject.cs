@@ -7,7 +7,7 @@ public class DestroyAndInstantiateObject : MonoBehaviour
         Destroy(gameObject, time);
     }
     
-    public void InstantiateGameObject(){
-        
+    public void InstantiateGameObject(GameObject gObj, Vector3 position, Quaternion rotation){
+        Instantiate(gObj, position, rotation);
     }
 }

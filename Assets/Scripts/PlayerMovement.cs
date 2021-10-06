@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerMovement : DestroyAndInstantiateObject
 {
     public GameController controller;
     
@@ -46,7 +46,7 @@ public class PlayerMovement : MonoBehaviour
             TankRotationToClick(mouseWorldPosition);            
             moving = true; //Ativa a movimentação
             
-            GameObject temp_ClickTarget = Instantiate(click_target, mouseWorldPosition, Quaternion.identity);
+            InstantiateGameObject(click_target, mouseWorldPosition, Quaternion.identity);
             VerifyClickPositionInsideCamLimits();
 
             //movDirection = (mouseWorldPosition - transform.position).normalized;
