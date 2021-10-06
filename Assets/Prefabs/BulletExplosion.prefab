@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5322541627416317496}
   m_Layer: 0
   m_Name: BulletExplosion
-  m_TagString: Untagged
+  m_TagString: Particle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

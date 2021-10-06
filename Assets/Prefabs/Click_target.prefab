@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1873312355310427370}
   m_Layer: 0
   m_Name: Click_target
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -92,7 +92,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 7510029905118075150}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc9beccd101733347a4e4ef7cadf9df4, type: 3}
+  m_Script: {fileID: 11500000, guid: ddcf873317c1a154fa208adb754b8830, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeToDestroy: 0.3

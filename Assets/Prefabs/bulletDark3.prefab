@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 433033585547491567}
   m_Layer: 0
   m_Name: bulletDark3
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -97,9 +97,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3eee626a5bf10d3419e135c0a7fba5cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeToDestroy: 0.3
   bullet_Forward_Force: 7
   timeToDestroy: 4
+  explosionGObj: {fileID: 7137824261909541114, guid: 569dffa3139072941a9d2439efb4b927, type: 3}
 --- !u!50 &-9026492350167658876
 Rigidbody2D:
   serializedVersion: 4

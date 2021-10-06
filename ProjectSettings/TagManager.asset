@@ -3,7 +3,9 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Particle
+  - IA
   layers:
   - Default
   - TransparentFX
@@ -49,4 +51,7 @@ TagManager:
     locked: 0
   - name: Tanks
     uniqueID: 1277562931
+    locked: 0
+  - name: Particles
+    uniqueID: 2419177015
     locked: 0
