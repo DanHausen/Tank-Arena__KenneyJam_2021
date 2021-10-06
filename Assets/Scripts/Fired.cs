@@ -16,7 +16,6 @@ public class Fired : DestroyAndInstantiateObject
     }
     
     void OnDestroy(){
-        //TODO Fazer as balas explodirem no final. Instanciar a explosão
         InstantiateGameObject(explosionGObj, gameObject.transform.position, Quaternion.identity);
     }
 }
