@@ -15,5 +15,6 @@ public class ExplosionScript : DestroyAndInstantiateObject
     
     private void OnTriggerEnter2D(Collider2D other) {
         //TODO Trigger para explodir o que entrar no caminho da explosão do missile
+        Debug.Log("Explosão");
     }
 }
