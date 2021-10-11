@@ -12,7 +12,6 @@ public class DestroyAndInstantiateObject : MonoBehaviour
     }
     
     public void PlayerExploded(){
-        //TODO Trigger para explodir o que entrar no caminho da explosão do missile
         Debug.Log("Player Explodiu");
     }
     

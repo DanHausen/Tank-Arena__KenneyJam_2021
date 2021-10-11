@@ -15,7 +15,17 @@ public class Fired : DestroyAndInstantiateObject
         DestroyGameObject(timeToDestroy);
     }
     
-    void OnDestroy(){
+    private void OnCollisionEnter2D(Collision2D other) {
+        if(other.collider.tag != "notExplode"){
+            Destroy(gameObject);    
+        }
+    }
+    
+    private void BulletDestroyCallExplosion(){
         InstantiateGameObject(explosionGObj, gameObject.transform.position, Quaternion.identity);
+    }
+    
+    private void OnDestroy(){
+        BulletDestroyCallExplosion();
     }
 }

@@ -1,10 +1,10 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
     [SerializeField] private int _ammoAmount = 3;
-    [SerializeField] private Text _scorePointsText;    
     [SerializeField] private GameObject _bullet_Spawn_Point;
     [SerializeField] private GameObject _bullet;    
     private float _timeToReload = 0;
@@ -59,11 +59,6 @@ public class GameController : MonoBehaviour
     
     private void EnemySpawn(){
         //TODO Criar mecanica para spawnar inimigos neste script e tambem evoluir na dificuldade
-        
-    }
-    
-    private void Leaderboard(){
-        //TODO Aqui tambem vai a leaderboard
         
     }
 }
