@@ -40,6 +40,7 @@ public class GameController : MonoBehaviour
     
     private void AmmoCounterSliderUpdate(int ammo){
         ammoSlider.value = ammo;
+        SliderColorFeedbackScript.SliderColorUpdater(ammo);
     }
     
     private bool AmmoAmountValidator(){
