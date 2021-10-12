@@ -7,13 +7,13 @@ public class GameController : MonoBehaviour
     [SerializeField] private int _ammoAmount = 3;
     [SerializeField] private GameObject _bullet_Spawn_Point;
     [SerializeField] private GameObject _bullet;    
-    private float _timeToReload = 0;
+    private float _timeToReload = 2;
     
     
     public Slider ammoSlider;
     public int ammoMax = 3;
     public float fillAmount = 0.1f;
-    public float timeToReload = 7f;
+    public float timeToReload = 2f;
     
     
     
