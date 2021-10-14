@@ -35,16 +35,15 @@ public class GameController : MonoBehaviour
             
         }
             return AmmoAmountValidator();
-    }
+    }    
     
+    private bool AmmoAmountValidator(){
+        return false ? _ammoAmount <= 0 : true;
+    }
     
     private void AmmoCounterSliderUpdate(int ammo){
         ammoSlider.value = ammo;
         SliderColorFeedbackScript.SliderColorUpdater(ammo);
-    }
-    
-    private bool AmmoAmountValidator(){
-        return false ? _ammoAmount <= 0 : true;
     }
     
     private void AmmoRefill(){
