@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 797504005}
   - component: {fileID: 8419536146336777411}
   m_Layer: 0
-  m_Name: Enemy
+  m_Name: Enemy_Bomber
   m_TagString: IA
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

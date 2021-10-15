@@ -6,7 +6,7 @@ public class PlayerMovement : DestroyAndInstantiateObject
     
     [SerializeField] private Camera mainCam;
     [SerializeField] private GameObject parent;
-    [SerializeField] private float movSpeed = 5;  
+    [SerializeField] private float movSpeed = 4;  
     [SerializeField] private GameObject click_target;
     
     private bool moving = false;

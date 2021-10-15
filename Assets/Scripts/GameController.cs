@@ -58,7 +58,7 @@ public class GameController : MonoBehaviour
     }
     
     private void EnemySpawn(){
-        //TODO Criar mecanica para spawnar inimigos neste script e tambem evoluir na dificuldade
-        //Quero spawnar os inimigos em ondas que aumentam a dificuldade com o tempo. Posso eliminar o reload automatico de munição e adicionar algo que o jogador precisa coletar, ou seja, vai precisar se posicionar corretamente e alinhar seus tiros.
+        //TODO Criar mecanica para spawnar inimigos neste script e tambem evoluir na dificuldade. 3 tipos de inimigos (sniper, bomber e repeater)
+        //Spawnar os inimigos em ondas que aumentam a dificuldade com o tempo. Posso eliminar o reload automatico de munição e adicionar algo que o jogador precisa coletar, ou seja, vai precisar se posicionar corretamente e alinhar seus tiros.
     }
 }
