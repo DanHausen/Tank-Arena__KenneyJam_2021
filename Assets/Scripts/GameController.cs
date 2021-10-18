@@ -61,6 +61,13 @@ public class GameController : MonoBehaviour
         //TODO Criar mecanica para spawnar inimigos neste script e tambem evoluir na dificuldade. 2 tipos de inimigos (sniper e bomber)
         //Sniper - Fica fugindo do jogador e atirando de longe
         //Bomber - Corre até o jogador e explode
-        //Spawnar os inimigos em ondas que aumentam a dificuldade com o tempo. Posso eliminar o reload automatico de munição e adicionar algo que o jogador precisa coletar, ou seja, vai precisar se posicionar corretamente e alinhar seus tiros.
+        
+        //TODO Adicionar animação de explosão do kit do Kenney. Removendo as particulas que inseri.
+        
+        //TODO Criar mecanica para IA dos inimigos
+        
+        //TODO Criar menu principal e de pausa
+        
+        //TODO eliminar o reload automatico de munição e adicionar algo que o jogador precisa coletar, ou seja, vai precisar se posicionar corretamente e alinhar seus tiros.
     }
 }
