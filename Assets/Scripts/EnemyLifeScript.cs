@@ -23,7 +23,6 @@ public class EnemyLifeScript : MonoBehaviour
     }
 
     private void ExplosionTrigger(){
-        //TODO Explodir o inimigo ao morrer
         Destroy(gameObject);
     }
 
