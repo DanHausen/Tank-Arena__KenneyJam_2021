@@ -1,9 +1,7 @@
 using UnityEngine;
 
 public class PlayerMovement : DestroyAndInstantiateObject
-{
-    public GameController controller;
-    
+{    
     [SerializeField] private Camera mainCam;
     [SerializeField] private GameObject parent;
     [SerializeField] private float movSpeed = 4;  
@@ -61,6 +59,7 @@ public class PlayerMovement : DestroyAndInstantiateObject
     }
     
     private void TankRotationToClick(Vector2 mouseInput){
+        //TODO Rotacionar o tanque
     }
 
     private void VerifyClickPositionInsideCamLimits()
@@ -79,7 +78,8 @@ public class PlayerMovement : DestroyAndInstantiateObject
     }    
     
     private void FireBullet(){
-        bool hasAmmo = controller.FiredBullet();
+        bool hasAmmo = GameController.hasAmmo;
+        //TODO Mover os métodos de atirar para este script
         if(hasAmmo){
             BackTankForceWhenFired();
         }

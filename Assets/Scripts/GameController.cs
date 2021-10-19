@@ -7,15 +7,13 @@ public class GameController : MonoBehaviour
     [SerializeField] private int _ammoAmount = 3;
     [SerializeField] private GameObject _bullet_Spawn_Point;
     [SerializeField] private GameObject _bullet;    
-    private float _timeToReload = 2;
+    private int ammoMax = 3;
+    private float timeToReload = 2f;
+    private float fillAmount = 0.1f;
+    private float _timeToReload = 2;    
     
-    
-    public Slider ammoSlider;
-    public int ammoMax = 3;
-    public float fillAmount = 0.1f;
-    public float timeToReload = 2f;
-    
-    
+    public Slider ammoSlider;    
+    public static bool hasAmmo = false;
     
     void Start(){
         AmmoCounterSliderUpdate(_ammoAmount);
@@ -24,17 +22,16 @@ public class GameController : MonoBehaviour
     
     void Update(){
         AmmoRefill();
+        hasAmmo = AmmoAmountValidator();
     }
     
-    public bool FiredBullet(){
+    public void FiredBullet(){
         if (_ammoAmount > 0){
             GameObject temporary_Rigidbody2D;
             temporary_Rigidbody2D = Instantiate(_bullet, _bullet_Spawn_Point.transform.position, _bullet_Spawn_Point.transform.rotation);
             _ammoAmount--;
-            AmmoCounterSliderUpdate(_ammoAmount);
-            
+            AmmoCounterSliderUpdate(_ammoAmount);            
         }
-            return AmmoAmountValidator();
     }    
     
     private bool AmmoAmountValidator(){
