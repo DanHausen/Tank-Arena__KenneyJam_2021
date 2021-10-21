@@ -4,51 +4,36 @@ using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
-    [SerializeField] private int _ammoAmount = 3;
-    [SerializeField] private GameObject _bullet_Spawn_Point;
-    [SerializeField] private GameObject _bullet;    
-    private int ammoMax = 3;
-    private float timeToReload = 2f;
-    private float fillAmount = 0.1f;
-    private float _timeToReload = 2;    
+    private int _ammoMax = 3;
+    private float _timeToReload = 2f;
     
-    public Slider ammoSlider;    
-    public static bool hasAmmo = false;
+    public float timeToReload = 2f;
+    public Slider ammoSlider;
     
     void Start(){
-        AmmoCounterSliderUpdate(_ammoAmount);
+        AmmoCounterSliderUpdate(PlayerMovement._ammoAmount);
         _timeToReload = timeToReload;
     }
     
     void Update(){
         AmmoRefill();
-        hasAmmo = AmmoAmountValidator();
     }
-    
-    public void FiredBullet(){
-        if (_ammoAmount > 0){
-            GameObject temporary_Rigidbody2D;
-            temporary_Rigidbody2D = Instantiate(_bullet, _bullet_Spawn_Point.transform.position, _bullet_Spawn_Point.transform.rotation);
-            _ammoAmount--;
-            AmmoCounterSliderUpdate(_ammoAmount);            
-        }
-    }    
     
     private bool AmmoAmountValidator(){
-        return false ? _ammoAmount <= 0 : true;
+        return false ? PlayerMovement._ammoAmount <= 0 : true;
     }
     
-    private void AmmoCounterSliderUpdate(int ammo){
+    public static void AmmoCounterSliderUpdate(int ammo){
         ammoSlider.value = ammo;
         SliderColorFeedbackScript.SliderColorUpdater(ammo);
     }
     
     private void AmmoRefill(){
-        if(timeToReload > 0 && _ammoAmount < ammoMax){
+        if(timeToReload > 0 && PlayerMovement._ammoAmount < _ammoMax){
             timeToReload -= Time.deltaTime;
             if(timeToReload <= 0){
-                _ammoAmount++;
-                AmmoCounterSliderUpdate(_ammoAmount);
+                PlayerMovement._ammoAmount++;
+                AmmoCounterSliderUpdate(PlayerMovement._ammoAmount);
                 timeToReload = _timeToReload;
             }
         }

@@ -5,7 +5,12 @@ public class PlayerMovement : DestroyAndInstantiateObject
     [SerializeField] private Camera mainCam;
     [SerializeField] private GameObject parent;
     [SerializeField] private float movSpeed = 4;  
-    [SerializeField] private GameObject click_target;
+    [SerializeField] private GameObject click_target;    
+    
+    [SerializeField] private GameObject _bullet_Spawn_Point;
+    [SerializeField] private GameObject _bullet;    
+    
+    public static int _ammoAmount = 3;   
     
     private bool moving = false;
     private GameObject cannon;
@@ -75,12 +80,14 @@ public class PlayerMovement : DestroyAndInstantiateObject
         else if(Input.GetAxis("Mouse ScrollWheel") < 0f){
             cannon.transform.Rotate(0,0,-15);            
         }
-    }    
+    }
     
     private void FireBullet(){
-        bool hasAmmo = GameController.hasAmmo;
-        //TODO Mover os métodos de atirar para este script
-        if(hasAmmo){
+        if (_ammoAmount > 0){
+            GameObject temporary_Rigidbody2D;
+            temporary_Rigidbody2D = Instantiate(_bullet, _bullet_Spawn_Point.transform.position, _bullet_Spawn_Point.transform.rotation);
+            _ammoAmount--;
+            GameController.AmmoCounterSliderUpdate(_ammoAmount);
             BackTankForceWhenFired();
         }
     }
