@@ -607,13 +607,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85703b95f2266da42920710fafbf691d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _ammoAmount: 3
-  _bullet_Spawn_Point: {fileID: 354823522}
-  _bullet: {fileID: 8196649866908802620, guid: 5fb8a56ca3cd5f249a72b69cf51dbe64, type: 3}
-  ammoSlider: {fileID: 571443603}
-  ammoMax: 3
-  fillAmount: 0.1
   timeToReload: 2
+  ammoSlider: {fileID: 571443603}
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -3573,6 +3568,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 797504005, guid: daef7b78f926e1447a770309541d4baa, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 0.65625
+      objectReference: {fileID: 0}
+    - target: {fileID: 797504005, guid: daef7b78f926e1447a770309541d4baa, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 0.625
+      objectReference: {fileID: 0}
     - target: {fileID: 4036784867093986754, guid: daef7b78f926e1447a770309541d4baa, type: 3}
       propertyPath: m_Name
       value: Enemy_Sniper
@@ -4284,6 +4287,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 143872974, guid: f97c8fda418819f4da35428714b0c58d, type: 3}
+      propertyPath: _bullet
+      value: 
+      objectReference: {fileID: 8196649866908802620, guid: 5fb8a56ca3cd5f249a72b69cf51dbe64, type: 3}
+    - target: {fileID: 143872974, guid: f97c8fda418819f4da35428714b0c58d, type: 3}
       propertyPath: mainCam
       value: 
       objectReference: {fileID: 519420031}
@@ -4295,6 +4302,10 @@ PrefabInstance:
       propertyPath: controller
       value: 
       objectReference: {fileID: 519420030}
+    - target: {fileID: 143872974, guid: f97c8fda418819f4da35428714b0c58d, type: 3}
+      propertyPath: _bullet_Spawn_Point
+      value: 
+      objectReference: {fileID: 354823522}
     - target: {fileID: 2835769045464630132, guid: f97c8fda418819f4da35428714b0c58d, type: 3}
       propertyPath: m_Name
       value: Player_tank
