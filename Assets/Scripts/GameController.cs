@@ -23,7 +23,7 @@ public class GameController : MonoBehaviour
         return false ? PlayerMovement._ammoAmount <= 0 : true;
     }
     
-    public static void AmmoCounterSliderUpdate(int ammo){
+    public void AmmoCounterSliderUpdate(int ammo){
         ammoSlider.value = ammo;
         SliderColorFeedbackScript.SliderColorUpdater(ammo);
     }

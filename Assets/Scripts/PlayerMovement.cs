@@ -20,6 +20,8 @@ public class PlayerMovement : DestroyAndInstantiateObject
     private Vector3 screenPoint;
     private bool onScreen;
     
+    GameController gc;
+    
     void Start()
     {
         cannon = parent.transform.GetChild(0).gameObject;
@@ -43,12 +45,11 @@ public class PlayerMovement : DestroyAndInstantiateObject
         if(Input.GetButtonDown("Fire2"))
         {
             mouseWorldPosition = (Vector2)mainCam.ScreenToWorldPoint(Input.mousePosition);//Captura a posição do click
-            TankRotationToClick(mouseWorldPosition);            
+            TankRotationToClick(mouseWorldPosition);
             moving = true; //Ativa a movimentação
             
             InstantiateGameObject(click_target, mouseWorldPosition, Quaternion.identity);
             VerifyClickPositionInsideCamLimits();
-
             //movDirection = (mouseWorldPosition - transform.position).normalized;
         }
         if (moving && onScreen){
@@ -87,7 +88,7 @@ public class PlayerMovement : DestroyAndInstantiateObject
             GameObject temporary_Rigidbody2D;
             temporary_Rigidbody2D = Instantiate(_bullet, _bullet_Spawn_Point.transform.position, _bullet_Spawn_Point.transform.rotation);
             _ammoAmount--;
-            GameController.AmmoCounterSliderUpdate(_ammoAmount);
+            gc.AmmoCounterSliderUpdate(_ammoAmount);
             BackTankForceWhenFired();
         }
     }
