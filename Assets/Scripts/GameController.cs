@@ -6,6 +6,7 @@ public class GameController : MonoBehaviour
 {
     private int _ammoMax = 3;
     private float _timeToReload = 2f;
+    private static Image _image;    
     
     public float timeToReload = 2f;
     public Slider ammoSlider;
@@ -13,6 +14,8 @@ public class GameController : MonoBehaviour
     void Start(){
         AmmoCounterSliderUpdate(PlayerMovement._ammoAmount);
         _timeToReload = timeToReload;
+        _image = gameObject.GetComponentInChildren<Image>();
+        
     }
     
     void Update(){
@@ -23,9 +26,9 @@ public class GameController : MonoBehaviour
         return false ? PlayerMovement._ammoAmount <= 0 : true;
     }
     
-    public void AmmoCounterSliderUpdate(int ammo){
+    public void AmmoCounterSliderUpdate(float ammo){
         ammoSlider.value = ammo;
-        SliderColorFeedbackScript.SliderColorUpdater(ammo);
+        SliderColorUpdater(ammo);
     }
     
     private void AmmoRefill(){
@@ -51,5 +54,22 @@ public class GameController : MonoBehaviour
         //TODO Criar menu principal e de pausa
         
         //TODO eliminar o reload automatico de munição e adicionar algo que o jogador precisa coletar, ou seja, vai precisar se posicionar corretamente e alinhar seus tiros.
+    }    
+    
+    private void SliderColorUpdater(float ammo){
+        switch(ammo){
+            case 0:
+                _image.color = Color.red;
+                break;
+            case 1:
+                _image.color = Color.red;
+                break;
+            case 2:
+                _image.color = Color.yellow;
+                break;
+            case 3:
+                _image.color = Color.green;
+                break;
+        }
     }
 }
