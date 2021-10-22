@@ -6,15 +6,15 @@ public class GameController : MonoBehaviour
 {
     private int _ammoMax = 3;
     private float _timeToReload = 2f;
-    private static Image _image;    
     
+    public Image _image;    
     public float timeToReload = 2f;
     public Slider ammoSlider;
     
     void Start(){
         AmmoCounterSliderUpdate(PlayerMovement._ammoAmount);
         _timeToReload = timeToReload;
-        _image = gameObject.GetComponentInChildren<Image>();
+        _image = _image.GetComponent<Image>();
         
     }
     
@@ -26,7 +26,7 @@ public class GameController : MonoBehaviour
         return false ? PlayerMovement._ammoAmount <= 0 : true;
     }
     
-    public void AmmoCounterSliderUpdate(float ammo){
+    public void AmmoCounterSliderUpdate(int ammo){
         ammoSlider.value = ammo;
         SliderColorUpdater(ammo);
     }
@@ -37,6 +37,7 @@ public class GameController : MonoBehaviour
             if(timeToReload <= 0){
                 PlayerMovement._ammoAmount++;
                 AmmoCounterSliderUpdate(PlayerMovement._ammoAmount);
+                //TODO problema na barra de munição
                 timeToReload = _timeToReload;
             }
         }

@@ -20,8 +20,6 @@ public class PlayerMovement : DestroyAndInstantiateObject
     private Vector3 screenPoint;
     private bool onScreen;
     
-    GameController gc;
-    
     void Start()
     {
         cannon = parent.transform.GetChild(0).gameObject;
@@ -88,7 +86,6 @@ public class PlayerMovement : DestroyAndInstantiateObject
             GameObject temporary_Rigidbody2D;
             temporary_Rigidbody2D = Instantiate(_bullet, _bullet_Spawn_Point.transform.position, _bullet_Spawn_Point.transform.rotation);
             _ammoAmount--;
-            gc.AmmoCounterSliderUpdate(_ammoAmount);
             BackTankForceWhenFired();
         }
     }
