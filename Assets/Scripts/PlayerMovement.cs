@@ -15,9 +15,9 @@ public class PlayerMovement : DestroyAndInstantiateObject
     private bool moving = false;
     private GameObject cannon;
     private Rigidbody2D rb;
-    private Vector2 movDirection;
-    private Vector3 mouseWorldPosition;
-    private Vector3 screenPoint;
+    //private Vector2 movDirection;
+    private UnityEngine.Vector3 mouseWorldPosition;
+    private UnityEngine.Vector3 screenPoint;
     private bool onScreen;
     
     void Start()
@@ -62,8 +62,10 @@ public class PlayerMovement : DestroyAndInstantiateObject
         }
     }
     
-    private void TankRotationToClick(Vector2 mouseInput){
+    private void TankRotationToClick(UnityEngine.Vector3 mouseInput){
         //TODO Rotacionar o tanque
+        Debug.Log(mouseInput);
+        gameObject.transform.LookAt(new Vector3(transform.position.x, transform.position.y, mouseInput.z));
     }
 
     private void VerifyClickPositionInsideCamLimits()
