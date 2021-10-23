@@ -33,11 +33,10 @@ public class GameController : MonoBehaviour
     
     private void AmmoRefill(){
         if(timeToReload > 0 && PlayerMovement._ammoAmount < _ammoMax){
+            AmmoCounterSliderUpdate(PlayerMovement._ammoAmount);            
             timeToReload -= Time.deltaTime;
             if(timeToReload <= 0){
                 PlayerMovement._ammoAmount++;
-                AmmoCounterSliderUpdate(PlayerMovement._ammoAmount);
-                //TODO problema na barra de munição
                 timeToReload = _timeToReload;
             }
         }
