@@ -43,12 +43,10 @@ public class PlayerMovement : DestroyAndInstantiateObject
         if(Input.GetButtonDown("Fire2"))
         {
             mouseWorldPosition = (Vector2)mainCam.ScreenToWorldPoint(Input.mousePosition);//Captura a posição do click
-            TankRotationToClick(mouseWorldPosition);
             moving = true; //Ativa a movimentação
             
             InstantiateGameObject(click_target, mouseWorldPosition, Quaternion.identity);
             VerifyClickPositionInsideCamLimits();
-            //movDirection = (mouseWorldPosition - transform.position).normalized;
         }
         if (moving && onScreen){
             transform.position = Vector2.MoveTowards(transform.position, mouseWorldPosition, movSpeed * Time.deltaTime);            // Move o jogador em direção ao click do mouse
@@ -60,12 +58,6 @@ public class PlayerMovement : DestroyAndInstantiateObject
         else{
             rb.velocity = Vector2.zero;
         }
-    }
-    
-    private void TankRotationToClick(UnityEngine.Vector3 mouseInput){
-        //TODO Rotacionar o tanque
-        Debug.Log(mouseInput);
-        gameObject.transform.LookAt(new Vector3(transform.position.x, transform.position.y, mouseInput.z));
     }
 
     private void VerifyClickPositionInsideCamLimits()

@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class GameController : MonoBehaviour
 {
     private int _ammoMax = 3;
-    private float _timeToReload = 2f;
+    private float _timeToReload;
     
     public Image image;
     public float timeToReload = 2f;
@@ -69,6 +69,7 @@ public class GameController : MonoBehaviour
         //TODO 4 habilitar reload automatico(arcademode) ou munição para coletar(tankmode) no menu
     }
         
-    //TODO 1 Adicionar animação de explosão do kit do Kenney. Removendo as particulas que inseri.
     //TODO 5 Alterar tipo de reload baseado na escolha do jogador
+    //TODO 7 adicionar sons
+    
 }

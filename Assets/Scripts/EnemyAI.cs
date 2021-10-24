@@ -4,5 +4,5 @@ using UnityEngine;
 
 public class EnemyAI : MonoBehaviour
 {
-    //TODO 5 Criar mecanica para IA dos inimigos
+    //TODO 6 Criar mecanica para IA dos inimigos
 }
