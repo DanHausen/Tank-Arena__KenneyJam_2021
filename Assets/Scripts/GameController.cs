@@ -31,8 +31,8 @@ public class GameController : MonoBehaviour
     }
     
     private void AmmoRefill(){
+        AmmoCounterSliderUpdate(PlayerMovement._ammoAmount);
         if(timeToReload > 0 && PlayerMovement._ammoAmount < _ammoMax){
-            AmmoCounterSliderUpdate(PlayerMovement._ammoAmount);            
             timeToReload -= Time.deltaTime;
             if(timeToReload <= 0){
                 PlayerMovement._ammoAmount++;
