@@ -28,13 +28,15 @@ public class PlayerMovement : DestroyAndInstantiateObject
 
     void Update()
     {       
-        TankFire();
-        MousePositionMovement();     
-        CannonRotationChange();        
+        if(PauseMenu.gameIsPaused == false){
+            TankFire();
+            MousePositionMovement();     
+            CannonRotationChange();                   
+        }
     }
     
     private void TankFire(){
-        if(Input.GetButtonDown("Fire1")){
+        if(Input.GetButtonDown("Fire1") && PauseMenu.gameIsPaused == false){
             FireBullet();
         }
     }
