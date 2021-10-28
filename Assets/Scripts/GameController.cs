@@ -43,8 +43,6 @@ public class GameController : MonoBehaviour
     
     private void EnemySpawn(){
         //TODO 3 Criar mecanica para spawnar inimigos. 2 tipos de inimigos (sniper e bomber)
-            //Sniper - Fica fugindo do jogador e atirando de longe
-            //Bomber - Corre até o jogador e explode
     }
     
     private void SliderColorUpdater(float ammo){
@@ -65,7 +63,6 @@ public class GameController : MonoBehaviour
     }
     
     private void PauseMenu(){
-        //TODO 2 Criar menu principal e de pausa
         //TODO 4 habilitar reload automatico(arcademode) ou munição para coletar(tankmode) no menu
     }
         
