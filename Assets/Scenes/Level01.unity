@@ -712,6 +712,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6dac37e1f97d9134fbe80f939a2b28ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  waves:
+  - name: 
+    enemy: {fileID: 0}
+    count: 0
+    rate: 0
+  nextWave: 0
+  timeBetweenWaves: 5
+  waveCountdown: 0
 --- !u!1 &571443601
 GameObject:
   m_ObjectHideFlags: 0

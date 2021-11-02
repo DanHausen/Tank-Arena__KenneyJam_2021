@@ -28,11 +28,29 @@ public class WaveSpawner : MonoBehaviour
     void Update(){
         if(waveCountdown <= 0){
             if(state != SpawnState.SPAWNING){
-                // Spawn wave
+                StartCoroutine(SpawnWave(waves[nextWave]));
             }
         }
         else{
             waveCountdown -= Time.deltaTime;
         }
+    }
+    
+    IEnumerator SpawnWave(Wave _wave){
+        state = SpawnState.SPAWNING;
+        
+        for(int i = 0; i <_wave.count; i++){
+            SpawnEnemy(_wave.enemy);
+            yield return new WaitForSeconds(1f/_wave.rate);
+        }
+        
+        state = SpawnState.WAITING;
+        
+        yield break;
+    }
+    
+    void SpawnEnemy(Transform _enemy){
+        //Spawn Enemy
+        Debug.Log("Spawning enemy: " + _enemy.name);
     }
 }
