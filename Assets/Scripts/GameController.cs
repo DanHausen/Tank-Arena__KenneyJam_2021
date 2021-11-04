@@ -41,10 +41,6 @@ public class GameController : MonoBehaviour
         }
     }
     
-    private void EnemySpawn(){
-        //TODO 3 Criar mecanica para spawnar inimigos. 2 tipos de inimigos (sniper e bomber)
-    }
-    
     private void SliderColorUpdater(float ammo){
         switch(ammo){
             case 0:
