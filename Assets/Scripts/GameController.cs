@@ -58,12 +58,13 @@ public class GameController : MonoBehaviour
                 break;
         }
     }
-    
-    private void PauseMenu(){
-        //TODO 4 habilitar reload automatico(arcademode) ou munição para coletar(tankmode) no menu
-    }
         
-    //TODO 5 Alterar tipo de reload baseado na escolha do jogador
+    //TODO 5 Alterar tipo de reload baseado na escolha do jogador. Adicionar munição no cenário quando acabar a wave. Para isso preciso organizar o código entre as duas opções de seleção.
     //TODO 7 adicionar sons
-    
+    //TODO 8 finalizar menu de opções
+    //TODO 9 adicionar temporizador e aumento de dificuldade no modo TIME. 
+    //TODO 10 adicionar tela de finalização e tela de morte
+    //TODO 11 adicionar respawn do jogador
+
+    //TODO Adicionar marca Danhausen
 }
