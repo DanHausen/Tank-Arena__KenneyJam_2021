@@ -26,7 +26,6 @@ public class Fired : DestroyAndInstantiateObject
     }
     
     private void OnDestroy(){
-        //TODO 1 Adicionar animação de explosão do kit do Kenney. Removendo as particulas que inseri.
         BulletDestroyCallExplosion();
     }
 }
