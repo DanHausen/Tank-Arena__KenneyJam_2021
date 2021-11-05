@@ -15,6 +15,7 @@ public class GameController : MonoBehaviour
         AmmoCounterSliderUpdate(PlayerMovement._ammoAmount);
         _timeToReload = timeToReload;
         image = image.GetComponent<Image>();
+        Debug.Log(GameMode.gameModeSelected);
     }
     
     void Update(){
