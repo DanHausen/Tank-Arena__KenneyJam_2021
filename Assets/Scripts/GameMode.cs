@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class GameMode : MonoBehaviour
 {
-    public enum gameModeState{ARCADE, TIME};
-    public static gameModeState gameModeSelected;
+    private enum _GameModeState{ARCADE, TIME};
+    public static GameModeState gameModeSelected;
     
     public void Arcade(){
-        gameModeSelected = gameModeState.ARCADE;
+        gameModeSelected = _GameModeState.ARCADE;
     }
     
     public void Time(){
-        gameModeSelected = gameModeState.TIME;        
+        gameModeSelected = _GameModeState.TIME;        
     }
 }
