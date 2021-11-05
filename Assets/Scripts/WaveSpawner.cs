@@ -8,7 +8,7 @@ public class WaveSpawner : MonoBehaviour
     [System.Serializable]
     public class Wave{
         public string name;
-        public Transform enemy;
+        public Transform enemy;//TODO Adicionar mais de um tipo de inimigo
         public int count;
         public float rate;
     }
@@ -57,6 +57,8 @@ public class WaveSpawner : MonoBehaviour
     }
     
     void WaveCompleted(){
+        //TODO Adicionar feedback visual que a wave acabou
+        //TODO spawnar munição quando a wave acabar
         Debug.Log("Wave done");
         state = SpawnState.COUNTING;
         waveCountdown = timeBetweenWaves;
