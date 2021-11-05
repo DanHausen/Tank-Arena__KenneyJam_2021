@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class WaveSpawner : MonoBehaviour
 {
-    private enum _SpawnState{SPAWNING, WAITING, COUNTING};
+    public enum SpawnState{SPAWNING, WAITING, COUNTING};
     
     [System.Serializable]
     public class Wave{
@@ -23,7 +23,7 @@ public class WaveSpawner : MonoBehaviour
     
     private float _searchCountdown = 1f;
     
-    public static _SpawnState spawnState = _SpawnState.COUNTING;
+    public static SpawnState spawnState = SpawnState.COUNTING;
     
     void Start(){
         if(spawnPoints.Length == 0){
@@ -36,7 +36,7 @@ public class WaveSpawner : MonoBehaviour
     }
     
     void Update(){
-        if(spawnState == _SpawnState.WAITING){
+        if(spawnState == SpawnState.WAITING){
             if(!EnemyIsAlive()){
                 //Begin a new wave
                 WaveCompleted();
@@ -47,7 +47,7 @@ public class WaveSpawner : MonoBehaviour
         }
         
         if(_waveCountdown <= 0){
-            if(spawnState != _SpawnState.SPAWNING){
+            if(spawnState != SpawnState.SPAWNING){
                 StartCoroutine(SpawnWave(waves[nextWave]));
             }
         }
@@ -60,7 +60,7 @@ public class WaveSpawner : MonoBehaviour
         //TODO Adicionar feedback visual que a wave acabou
         //TODO spawnar munição quando a wave acabar
         //Debug.Log("Wave done");
-        spawnState = _SpawnState.COUNTING;
+        spawnState = SpawnState.COUNTING;
         _waveCountdown = timeBetweenWaves;
         
         if (nextWave+1 > waves.Length -1){
@@ -86,14 +86,14 @@ public class WaveSpawner : MonoBehaviour
     
     IEnumerator SpawnWave(Wave _wave){
         //Debug.Log("Spawning wave " + _wave.name);
-        spawnState = _SpawnState.SPAWNING;
+        spawnState = SpawnState.SPAWNING;
         
         for(int i = 0; i <_wave.count; i++){
             SpawnEnemy(_wave.enemy);
             yield return new WaitForSeconds(1f/_wave.rate);
         }
         
-        spawnState = _SpawnState.WAITING;
+        spawnState = SpawnState.WAITING;
         
         yield break;
     }
